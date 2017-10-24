@@ -12,6 +12,7 @@ int main()
 	int count = 0;
 	printf("main process ID:%4d\n",getpid());
 	fpid = fork();
+
 	if( 0 > fpid)
 	{
 		printf("error in fork!\n");	
@@ -34,11 +35,24 @@ int main()
 	printf("\n");
 	return 0;
 }
+
 /*
 *<summary>
 *First:the lib of multi process is <unistd.h>.
 *seccond:we can get the data of child process ID by the return value of fork();
 *		:Get the data of self process ID by the function of getpid();
 *		:Get the data of parent process ID by the function of getppid();
-*Third:
+*Third:learn how to use the function of fork();
 */
+
+/*
+*name:fork();
+*parameter:void
+*the return value:If the call succeeds, the function returns two values,\
+the child process returns 0, and the parent process returns the ID of the child process.
+*function:Create process.
+*/
+
+
+
+
