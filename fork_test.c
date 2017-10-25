@@ -20,18 +20,18 @@ int main()
 	else if( 0 == fpid)
 	{
 		printf("This is child process.We can share count:%d\n",count);
-		printf("Parent prcocess ID is %4d. Self process ID is %4d.Child process ID is %4d.\n",getppid,getpid(),fpid);
+		printf("Parent prcocess ID is %4d. Self process ID is %4d.Child process ID is %4d.\n",(int)getppid,(int)getpid(),fpid);
 		count++;
 	}
 	else 
 	{
 		printf("This is parent process.We can share count:%d\n",count);
-		printf("Parent prcocess ID is %4d. Self process ID is %4d.Child process ID is %4d.\n",getppid,getpid(),fpid);
+		printf("Parent prcocess ID is %4d. Self process ID is %4d.Child process ID is %4d.\n",(int)getppid,(int)getpid(),fpid);
 		count++;
 	}
 	
 	printf("we can observe count:%d\n",count);
-	printf("Parent prcocess ID is %4d. Self process ID is %4d.Child process ID is %4d.\n",getppid,getpid(),fpid);
+	printf("Parent prcocess ID is %4d. Self process ID is %4d.Child process ID is %4d.\n",(int)getppid,(int)getpid(),fpid);
 	printf("\n");
 	return 0;
 }
