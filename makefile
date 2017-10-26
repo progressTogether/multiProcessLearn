@@ -24,7 +24,7 @@ fork_test.o:fork_test.c
 cPrimer.o:cPrimer.c cPrimer.h
 	$(GCC) $(CFLAGS) -c cPrimer.c 
 
-myStrLib.o:myStrLib.c
+myStrLib.o:myStrLib.c myStrLib.h
 	$(GCC) $(CFLAGS) -c myStrLib.c
 	
 clean :

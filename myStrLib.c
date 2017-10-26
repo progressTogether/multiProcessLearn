@@ -1,47 +1,7 @@
 #include<string.h>
 #include<stdio.h>
 
-#include"cPrimer.h"
-#ifndef _CPRIMER_H
-#define _CPRIMER_H
-#endif
-
-void printEveryType()
-{
-	char lengthChar = 'h';
-
-	short lengthShort = 0;
-	int lengthInt = 0;
-	long lengthLong = 0;
-
-	float lengthFloat = 0.0;
-	double lengthDouble = 0.0;
-
-	int a[10] = {0};
-
-	int *lengthPoint = &lengthInt;
-
-	student studentA;
-	subject stuSubject;
-
-	printf("The length of type char is %d\n",(int)sizeof(lengthChar) );
-
-	printf("The length of type short is %d\n",(int)sizeof(lengthShort) );
-	printf("The length of type int is %d\n",(int)sizeof(lengthInt));
-	printf("The length of type long is %d\n",(int)sizeof(lengthLong));
-
-	printf("The length of type float is %d\n",(int)sizeof(lengthFloat));
-	printf("The length of type double is %d\n",(int)sizeof(lengthDouble));
-
-	printf("The length of type array is %d\n",(int)sizeof(a));
-	printf("The length of type point is %d\n",(int)sizeof(&a));
-
-	printf("The length of type point is %d\n",(int)sizeof(lengthPoint));
-
-	printf("The length of type struct is %d\n",(int)sizeof(studentA));
-	printf("The length of type enum is %d\n",(int)sizeof(studentA.stuSub));
-	printf("The length of type enum stuSubject is %d\n",(int)sizeof(stuSubject));
-}
+#include"myStrLib.h"
 
 char * myStrcpy( char*dest,const char *source)//pay attention const
 {
@@ -130,6 +90,43 @@ char * myStrcat(char*dest,const char *source)
 #endif
 	return address;
 }
+
+char * myStrstr(char *string,char * subString)
+{
+	int length = 0;
+	int machingFlag = 0;
+	char *dest = string;
+	char *matchString = subString;
+	while('\0' != *string++)
+	{
+		dest = string;
+		machingFlag = 1;
+		matchString = subString;
+		length =  0;
+		for(;'\0' != *(matchString);matchString++)
+		{
+			printf("result matchString=%s string=%s\n",matchString,string + length);
+			if(*(string + length) != *matchString )
+			{
+				printf("result1 matchString=%s string=%s\n",matchString,string + length);
+				machingFlag = 0;
+				continue;
+			}
+			length++;
+		}
+
+		if(1 == machingFlag)
+		{
+			return dest;
+		}
+
+	}
+	if(0 == machingFlag)
+	{
+		return NULL;
+	}
+}
+
 /*
 *Summary
 *first:

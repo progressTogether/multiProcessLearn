@@ -12,7 +12,3 @@ typedef struct _student
 } student;
 
 void printEveryType();
-char * myStrcpy(char*dest,const char *source);
-int myStrcomp(const char *compA,const char *compB);
-int myStrlen(const char *str);
-char * myStrcat(char*dest,const char *source);
