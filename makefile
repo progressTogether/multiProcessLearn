@@ -5,20 +5,24 @@ TARGET = multiProcessTest cPrimerTest
 
 GCC = gcc
 
-CFLAGS  := -o 
+DEFINE = -D DEFINE_BY_XIAOHUI
+
+CFLAGS += $(DEFINE)
 
 all:$(TARGET)
 	@echo $(TARGET)
 
 multiProcessTest:fork_test.o
-	$(GCC) $(CFLAGS) multiProcessTest fork_test.o
+	$(GCC) -o multiProcessTest fork_test.o
+	
 cPrimerTest:cPrimer.o
-	$(GCC) $(CFLAGS) cPrimerTest cPrimer.o
+	$(GCC) -o cPrimerTest cPrimer.o
 
 fork_test.o:fork_test.c
-	$(GCC) -c fork_test.c
-cPrimer.o:cPrimer.c
-	$(GCC) -c cPrimer.c
+	$(GCC) $(CFLAGS) -c fork_test.c
+	
+cPrimer.o:cPrimer.c cPrimer.h
+	$(GCC) $(CFLAGS) -c cPrimer.c
 	
 clean :
 	@rm -f *.o $(TARGET)
