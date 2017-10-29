@@ -1,6 +1,8 @@
 #include<stdio.h>
+#include<string.h>
 
-#include"myStrLib.c"
+#include"cPrimer.h"
+
 #ifndef _CPRIMER_H
 #define _CPRIMER_H
 #endif
@@ -34,21 +36,21 @@ int main()
 
 	char buf[] = "we@can&make*it@better";
 	char bufCopy[] = "we@can&make*it@better";
-	char*str1 = myStrtok(buf,"@&*");
+	char*str1 = myStrtok(buf,"@");
 	while(str1)
 	{
-		printf("%s ",str1);
 		str1 = myStrtok(NULL,"@");
+		DEBUG_PRINT
 	}
 
-	char*str2 = strtok(bufCopy, "@&*");
-	printf("\n");
+	char*str2 = strtok(bufCopy,"@");
+
 	while (str2)
 	{
-		printf("%s ", str2);
+		printf("%s ",str2);
 		str2 = strtok(NULL, "@");
 	}
-	printf("\n");
+
 	return 0;
 }
 

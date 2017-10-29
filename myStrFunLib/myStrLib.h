@@ -1,7 +1,6 @@
-#include"cPrimer.h"
-#ifndef _CPRIMER_H
-#define _CPRIMER_H
-#endif
+#define DEBUG_PRINT printf("File name is %s.Function is %s.Local line is %d.\n",\
+							__FILE__,__FUNCTION__,\
+							__LINE__);
 
 char * myStrcpy(char*dest,const char *source);
 int myStrcomp(const char *compA,const char *compB);

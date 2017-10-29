@@ -1,0 +1,12 @@
+About compile
+First:Makefile can create multi target.
+Second:gcc compile
+	a: gcc -c depend.c   -------------->>>>Create depend.o   
+	b: gcc -D MACRO_SWITCH -c depend.c->>>Create depend.o and add macro switch
+	c: gcc -o target depend.o --------->>>Create target file which can be implemented.
+	d: the compile of share library:
+		1:gcc -c -fpic depend.c    -------->>>Create depend.o
+		2:gcc -share depend.o -o libtarget.so--->>Create libtarget.so
+		3:
+Third:environment variable
+	a: export LD_LIBRARY_PATH="../lib"

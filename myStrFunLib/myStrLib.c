@@ -132,10 +132,7 @@ char * myStrtok(char *str, const char *delim)
 {
 	static char *src = NULL;
 	const char *indelim = delim;
-	int flag = 0;
-	int index = 0;
 	char *temp = NULL;
-
 	if (NULL == str)
 	{
 		str = src;
@@ -146,10 +143,13 @@ char * myStrtok(char *str, const char *delim)
 	{
 		return NULL;
 	}
+
 	if ('\0' == *str)
 	{
+		DEBUG_PRINT
 		return NULL;
 	}
+
 //"we@can@make@it@better";
 	for (; *str; str++)
 	{
@@ -158,6 +158,7 @@ char * myStrtok(char *str, const char *delim)
 		//temp
 		for (; *delim; delim++)
 		{
+
 			if (*str == *delim)
 			{
 				*str = '\0';
@@ -167,7 +168,7 @@ char * myStrtok(char *str, const char *delim)
 		}
 
 	}
-
+	DEBUG_PRINT
 	if('\0' == *str )
 	{
 		src = NULL;

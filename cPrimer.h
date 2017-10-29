@@ -1,6 +1,4 @@
-#define DEBUG_PRINT printf("File name is %s.Function is %s.Local line is %d.\n",\
-							__FILE__,__FUNCTION__,\
-							__LINE__);
+#include"myStrLib.h"
 
 typedef enum _subject{Chinese,Math,Physics,Chemistry,Geography,History,Biology} subject;
 
