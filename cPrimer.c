@@ -21,14 +21,34 @@ int main()
 	DEBUG_PRINT
 
 	char test[30] = "you are";
-		printf("The combined \"you are\"  and \"cool\" results were \"%s\" by myStrcat.\n",myStrcat(test,"cool!"));
+	printf("The combined \"you are\"  and \"cool\" results were \"%s\" by myStrcat.\n",myStrcat(test,"cool!"));
+
+	printf("mach %s\n",myStrstr("hello every","every"));
+	printf("mach %s\n",strstr("hello every","every"));
 
 #else
 	printf("DEFINE_BY_XIAOHUI is close\n");
 #endif
 
-	printf("mach %s\n",myStrstr("hello every","every"));
-	printf("mach %s\n",strstr("hello every","every"));
+
+
+	char buf[] = "we@can&make*it@better";
+	char bufCopy[] = "we@can&make*it@better";
+	char*str1 = myStrtok(buf,"@&*");
+	while(str1)
+	{
+		printf("%s ",str1);
+		str1 = myStrtok(NULL,"@");
+	}
+
+	char*str2 = strtok(bufCopy, "@&*");
+	printf("\n");
+	while (str2)
+	{
+		printf("%s ", str2);
+		str2 = strtok(NULL, "@");
+	}
+	printf("\n");
 	return 0;
 }
 

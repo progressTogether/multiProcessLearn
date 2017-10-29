@@ -8,3 +8,4 @@ int myStrcomp(const char *compA,const char *compB);
 int myStrlen(const char *str);
 char * myStrcat(char*dest,const char *source);
 char * myStrstr(char *string,char * subString);
+char * myStrtok(char *str, const char *delim);
