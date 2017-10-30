@@ -8,3 +8,5 @@ int myStrlen(const char *str);
 char * myStrcat(char*dest,const char *source);
 char * myStrstr(char *string,char * subString);
 char * myStrtok(char *str, const char *delim);
+
+int sortArray(void *array,int num,int length,int (*callback)(void *,void *));

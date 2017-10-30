@@ -61,7 +61,7 @@ char * myStrcat(char*dest, const char *source)
 	char *address = dest;
 	int destLength = 0;
 	int length = 0;
-	DEBUG_PRINT
+
 #ifdef 	LOW_SELF
 	while('\0' != *dest++)
 	{
@@ -139,7 +139,7 @@ char * myStrtok(char *str, const char *delim)
 	}
 	temp = str;
 
-	if(str == NULL)
+	if (str == NULL)
 	{
 		return NULL;
 	}
@@ -168,13 +168,49 @@ char * myStrtok(char *str, const char *delim)
 
 	}
 
-	if('\0' == *str )
+	if ('\0' == *str)
 	{
 		src = NULL;
 		return temp;
 	}
 
 }
+
+void swap(void * A, void *B, int length)
+{
+	unsigned char temp = (unsigned char) "\0";
+
+	unsigned char *parameA = (unsigned char *) A;
+	unsigned char *parameB = (unsigned char *) B;
+
+	for (int i = 0; i < length; i++)
+	{
+		temp = *(parameA + i);
+		*(parameA + i) = *(parameB + i);
+		*(parameB + i) = temp;
+	}
+}
+
+int sortArray(void *array, int num, int length, int (*callback)(void *, void *))
+{
+	unsigned char *arraySort = (unsigned char *) array;
+	for (int i = num; i > 0; i--)
+	{
+		for (int j = 0; j < i - 1; j++)
+		{
+			if (0
+					> callback(arraySort + j * length,
+							arraySort + (j + 1) * length))
+			{
+				swap(arraySort + j * length, arraySort + (j + 1) * length,
+						length);
+			}
+		}
+	}
+
+	return 0;
+}
+
 /*
  *Summary
  *first:
