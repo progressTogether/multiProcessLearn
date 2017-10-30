@@ -36,7 +36,7 @@ cPrimerTest:cPrimer.c cPrimer.h
 fork_test.o:fork_test.c 
 	$(GCC) $(CFLAGS) -c fork_test.c
 
-.PHONY : clean	
+.PHONY : clean
 clean :
-	@rm -f *.o $(TARGET)
+	@rm -f *.o $(TARGET) ./myStrFunLib/lib/* ./myStrFunLib/*.o ./myStrFunLib/*.so
 #gcc main.c -o multiProcessTest -lpthread
