@@ -8,6 +8,8 @@ INCLUDE 	:= -I $(TOP_PATH)/myStrFunLib/include
 LIBS_PATH	:= -L $(TOP_PATH)/myStrFunLib/lib
 LIBS		:= -lMyStrFun
 
+
+
 SHARE   := -shared  -o
 
 GCC = gcc
@@ -16,9 +18,13 @@ DEFINE = -D DEFINE_BY_XIAOHUI
 
 CFLAGS += $(DEFINE)
 
-all:$(TARGET)
+
+all:subsystem $(TARGET) 
 	@echo $(TARGET)
 	export LD_LIBRARY_PATH="$(TOP_PATH)/myStrFunLib/lib"
+
+subsystem:
+	cd myStrFunLib 	&& (make clean&&make&&make install)
 
 multiProcessTest:fork_test.o
 	$(GCC) -o multiProcessTest fork_test.o
@@ -29,7 +35,8 @@ cPrimerTest:cPrimer.c cPrimer.h
 	
 fork_test.o:fork_test.c 
 	$(GCC) $(CFLAGS) -c fork_test.c
-	
+
+.PHONY : clean	
 clean :
 	@rm -f *.o $(TARGET)
 #gcc main.c -o multiProcessTest -lpthread

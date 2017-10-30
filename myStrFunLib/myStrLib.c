@@ -146,7 +146,6 @@ char * myStrtok(char *str, const char *delim)
 
 	if ('\0' == *str)
 	{
-		DEBUG_PRINT
 		return NULL;
 	}
 
@@ -168,7 +167,7 @@ char * myStrtok(char *str, const char *delim)
 		}
 
 	}
-	DEBUG_PRINT
+
 	if('\0' == *str )
 	{
 		src = NULL;

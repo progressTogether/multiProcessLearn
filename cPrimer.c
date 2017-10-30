@@ -39,10 +39,10 @@ int main()
 	char*str1 = myStrtok(buf,"@");
 	while(str1)
 	{
+		printf("%s ",str1);
 		str1 = myStrtok(NULL,"@");
-		DEBUG_PRINT
 	}
-
+	printf("\n");
 	char*str2 = strtok(bufCopy,"@");
 
 	while (str2)
@@ -50,7 +50,7 @@ int main()
 		printf("%s ",str2);
 		str2 = strtok(NULL, "@");
 	}
-
+	printf("\n");
 	return 0;
 }
 
