@@ -77,9 +77,9 @@ int main()
 	return 0;
 }
 
-void realEstaeBossDisplay(float price, observeType obType, char *information)
+void realEstaeBossDisplay(float price, char *observerMan, char *information)
 {
-	printf("NOW zjk house price is %f as %d I am %s\n", price, obType,
+	printf("NOW zjk house price is %f as %s I  %s\n", price, observerMan,
 			information);
 }
 

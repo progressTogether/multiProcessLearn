@@ -257,9 +257,10 @@ void notifyObserve(float price)
 		if (1 == obTogether[i]->isRegistered)
 		{
 			obTogether[i]->observed.price = price;
+			strcpy(obTogether[i]->representative,representative[obTogether[i]->type]);
 			char *s = "am very happy";
 			obTogether[i]->displayInformation(obTogether[i]->observed.price,
-					obTogether[i]->type, s);
+					obTogether[i]->representative, s);
 		}
 	}
 }

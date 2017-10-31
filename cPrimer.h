@@ -16,5 +16,5 @@ void printEveryType();
 
 int compareInt(int *parameA, int *parameB);
 
-void realEstaeBossDisplay(float price ,observeType obType,char *information);
+void realEstaeBossDisplay(float price ,char *observerMan,char *information);
 

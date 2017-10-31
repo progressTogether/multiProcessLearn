@@ -3,10 +3,20 @@
 							__LINE__);
 
 #define OBNUM 6
+#define RESNUM 15
 
 typedef enum _observeType {REAL_ESTAE_BOSS ,GOVEMENT ,THE_RICH_MAN,THE_POOR_MAN } observeType;
 
-typedef void (*displayHousePriceInformation)(float price ,observeType obType,char *information);
+char *representative[] =
+{ "real estate boss", "government", "the rich man", "the poor man" };
+
+char *desire[] =
+		{ "I am very happy and expect further rise in house prices",
+				"Try to control house prices and bring happies to people",
+				"It does not matter,I have plenty money",
+				"I cannot afford a house,I cannot afford a wife,I cannot afford a baby." };
+
+typedef void (*displayHousePriceInformation)(float price ,char *observerMan,char *information);
 
 typedef struct _ZJK_housePrice
 {
@@ -17,6 +27,7 @@ typedef struct _observes
 {
 	int isRegistered;
 	observeType type;
+	char representative[RESNUM];
 	ZJK_housePrice observed;
 	displayHousePriceInformation displayInformation;
 } observes;
