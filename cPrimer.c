@@ -39,10 +39,6 @@ int main()
 	}
 	printf("\n");
 
-#else
-	printf("DEFINE_BY_XIAOHUI is close\n");
-#endif
-
 	int array[] =
 	{ 9, 8, 7, 6, 5, 4, 3, 2, 1 };
 
@@ -54,7 +50,37 @@ int main()
 		printf(" %d ", array[i]);
 	}
 	printf("\n");
+
+#else
+	printf("DEFINE_BY_XIAOHUI is close\n");
+#endif
+	for (int i = 0; i < OBNUM; i++)
+	{
+		obTogether[i] = (observes *) malloc(sizeof(observes));
+	}
+
+	observes obRealEstaeBoss;
+	obRealEstaeBoss.isRegistered = 0;
+	obRealEstaeBoss.type = REAL_ESTAE_BOSS;
+	obRealEstaeBoss.observed.price = 0.0;
+	obRealEstaeBoss.displayInformation = realEstaeBossDisplay;
+
+	attachObserve(obRealEstaeBoss);
+
+	notifyObserve(1000.0);
+
+	for (int i = 0; i < OBNUM; i++)
+	{
+		free(obTogether[i]);
+		obTogether[i] = NULL;
+	}
 	return 0;
+}
+
+void realEstaeBossDisplay(float price, observeType obType, char *information)
+{
+	printf("NOW zjk house price is %f as %d I am %s\n", price, obType,
+			information);
 }
 
 int compareInt(int *parameA, int *parameB)
@@ -62,10 +88,12 @@ int compareInt(int *parameA, int *parameB)
 	if (*parameA > *parameB)
 	{
 		return -1;
-	} else if (*parameA == *parameB)
+	}
+	else if (*parameA == *parameB)
 	{
 		return 0;
-	} else
+	}
+	else
 	{
 		return 1;
 	}

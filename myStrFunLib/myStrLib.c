@@ -40,7 +40,8 @@ int myStrcomp(const char *compA, const char *compB)
 	if (*(unsigned char *) (compA - 1) > *(unsigned char *) (compB - 1))
 	{
 		return 1;
-	} else
+	}
+	else
 	{
 		return -1;
 	}
@@ -211,6 +212,57 @@ int sortArray(void *array, int num, int length, int (*callback)(void *, void *))
 	return 0;
 }
 
+void setHousePriceOb(float *price, observes ob)
+{
+	ob.observed.price = *price;
+}
+
+int attachObserve(observes ob)
+{
+	int attachSuccess = 0;
+	for (int i = 0; i < OBNUM; i++)
+	{
+		if (0 == obTogether[i]->isRegistered)
+		{
+			obTogether[i]->isRegistered = 1;
+			obTogether[i]->type = ob.type;
+			obTogether[i]->observed.price = ob.observed.price;
+			obTogether[i]->displayInformation = ob.displayInformation;
+			attachSuccess = 1;
+			return attachSuccess;
+		}
+	}
+	return attachSuccess;
+}
+
+int detachObserve(observes ob)
+{
+	int detachSuccess = 0;
+	for (int i = 0; i < OBNUM; i++)
+	{
+		if (obTogether[i]->type == ob.type)
+		{
+			memset(obTogether[i], 0, sizeof(obTogether[i]));
+			detachSuccess = 1;
+			return detachSuccess;
+		}
+	}
+	return detachSuccess;
+}
+
+void notifyObserve(float price)
+{
+	for (int i = 0; i < OBNUM; i++)
+	{
+		if (1 == obTogether[i]->isRegistered)
+		{
+			obTogether[i]->observed.price = price;
+			char *s = "am very happy";
+			obTogether[i]->displayInformation(obTogether[i]->observed.price,
+					obTogether[i]->type, s);
+		}
+	}
+}
 /*
  *Summary
  *first:
