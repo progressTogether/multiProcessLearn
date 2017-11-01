@@ -3,17 +3,22 @@
 							__LINE__);
 
 #define OBNUM 6
-#define RESNUM 15
+#define RESNUM 20
 
-typedef enum _observeType {REAL_ESTAE_BOSS ,GOVEMENT ,THE_RICH_MAN,THE_POOR_MAN } observeType;
+#define MESSAGELENGTH 80
 
-char *representative[] =
+#define DOUBLE 2
+#define TRIPLE 3
+
+typedef enum _observeType {REAL_ESTAE_BOSS=0 ,GOVEMENT ,THE_RICH_MAN,THE_POOR_MAN } observeType;
+
+static char *representative[] =
 { "real estate boss", "government", "the rich man", "the poor man" };
 
-char *desire[] =
-		{ "I am very happy and expect further rise in house prices",
-				"Try to control house prices and bring happies to people",
-				"It does not matter,I have plenty money",
+static char *desire[] =
+		{ "I am very happy and expect further rise in house prices.",
+				"Try to control house prices and bring happies to people.",
+				"It does not matter,I have plenty money.",
 				"I cannot afford a house,I cannot afford a wife,I cannot afford a baby." };
 
 typedef void (*displayHousePriceInformation)(float price ,char *observerMan,char *information);
@@ -28,6 +33,7 @@ typedef struct _observes
 	int isRegistered;
 	observeType type;
 	char representative[RESNUM];
+	char desire[MESSAGELENGTH];
 	ZJK_housePrice observed;
 	displayHousePriceInformation displayInformation;
 } observes;

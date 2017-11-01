@@ -1,7 +1,9 @@
 #include<stdio.h>
 #include<string.h>
+#include <stdlib.h>
 
 #include"cPrimer.h"
+#include"observerPattern.h"
 
 #ifndef _CPRIMER_H
 #define _CPRIMER_H
@@ -59,14 +61,7 @@ int main()
 		obTogether[i] = (observes *) malloc(sizeof(observes));
 	}
 
-	observes obRealEstaeBoss;
-	obRealEstaeBoss.isRegistered = 0;
-	obRealEstaeBoss.type = REAL_ESTAE_BOSS;
-	obRealEstaeBoss.observed.price = 0.0;
-	obRealEstaeBoss.displayInformation = realEstaeBossDisplay;
-
-	attachObserve(obRealEstaeBoss);
-
+	initEveryone();
 	notifyObserve(1000.0);
 
 	for (int i = 0; i < OBNUM; i++)
@@ -75,28 +70,6 @@ int main()
 		obTogether[i] = NULL;
 	}
 	return 0;
-}
-
-void realEstaeBossDisplay(float price, char *observerMan, char *information)
-{
-	printf("NOW zjk house price is %f as %s I  %s\n", price, observerMan,
-			information);
-}
-
-int compareInt(int *parameA, int *parameB)
-{
-	if (*parameA > *parameB)
-	{
-		return -1;
-	}
-	else if (*parameA == *parameB)
-	{
-		return 0;
-	}
-	else
-	{
-		return 1;
-	}
 }
 
 void printEveryType()
@@ -138,3 +111,18 @@ void printEveryType()
 			(int) sizeof(stuSubject));
 }
 
+int compareInt(int *parameA, int *parameB)
+{
+	if (*parameA > *parameB)
+	{
+		return -1;
+	}
+	else if (*parameA == *parameB)
+	{
+		return 0;
+	}
+	else
+	{
+		return 1;
+	}
+}

@@ -252,15 +252,19 @@ int detachObserve(observes ob)
 
 void notifyObserve(float price)
 {
+	char ch[2] = "\0";
 	for (int i = 0; i < OBNUM; i++)
 	{
 		if (1 == obTogether[i]->isRegistered)
 		{
 			obTogether[i]->observed.price = price;
-			strcpy(obTogether[i]->representative,representative[obTogether[i]->type]);
-			char *s = "am very happy";
+			strcpy(obTogether[i]->representative,
+					representative[obTogether[i]->type]);
+
+			strcpy(obTogether[i]->desire, desire[obTogether[i]->type]);
+
 			obTogether[i]->displayInformation(obTogether[i]->observed.price,
-					obTogether[i]->representative, s);
+					obTogether[i]->representative, obTogether[i]->desire);
 		}
 	}
 }

@@ -1,4 +1,8 @@
+#ifndef _MYSTRLIB_H
+#define _MYSTRLIB_H
 #include"myStrLib.h"
+#endif
+#include"observerPattern.h"
 
 typedef enum _subject
 {
@@ -15,6 +19,3 @@ typedef struct _student
 void printEveryType();
 
 int compareInt(int *parameA, int *parameB);
-
-void realEstaeBossDisplay(float price ,char *observerMan,char *information);
-

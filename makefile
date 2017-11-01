@@ -28,13 +28,12 @@ subsystem:
 
 multiProcessTest:fork_test.o
 	$(GCC) -o multiProcessTest fork_test.o
-
-#$(GCC) $(SOURCE) -lstraddleTest $(LIBS) $(CFLAGS) $@ $(INCLUDE)	
-cPrimerTest:cPrimer.c cPrimer.h
-	$(GCC) $(CFLAGS) cPrimer.c $(LIBS_PATH) $(LIBS) $(INCLUDE) -o cPrimerTest
-	
 fork_test.o:fork_test.c 
 	$(GCC) $(CFLAGS) -c fork_test.c
+
+#$(GCC) $(SOURCE) -lstraddleTest $(LIBS) $(CFLAGS) $@ $(INCLUDE)	
+cPrimerTest:cPrimer.c observerPattern.c cPrimer.h observerPattern.h
+	$(GCC) $(CFLAGS) cPrimer.c observerPattern.c $(LIBS_PATH) $(LIBS) $(INCLUDE) -o cPrimerTest
 
 .PHONY : clean
 clean :
